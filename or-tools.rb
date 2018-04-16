@@ -23,7 +23,7 @@ class OrTools < Formula
     # Make
     system "make", "detect"
     system "make", "cc"
-    system "make", "install"
+    system "make", "PREFIX=#{prefix}", "install"
     # CMake
     #mkdir "build" do
     #  system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
