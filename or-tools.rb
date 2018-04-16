@@ -28,10 +28,16 @@ class OrTools < Formula
 #  end
 
   def install
-    #system "cmake", ".", *std_cmake_args
+    ENV.deparallelize
+    # Make
     system "make", "detect"
     system "make", "cc"
     system "make", "install"
+    # CMake
+    #mkdir "build" do
+    #  system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    #  system "make", "install"
+    #end
   end
 
   test do
