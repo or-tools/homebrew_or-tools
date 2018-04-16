@@ -2,4 +2,4 @@
 set -x
 set -e
 
-brew install --verbose or-tools
+brew install --build-from-source --verbose ./or-tools.rb
