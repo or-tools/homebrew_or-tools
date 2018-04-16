@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Mizux/homebrew-or-tools.svg?branch=master)](https://travis-ci.org/Mizux/homebrew-or-tools)
+
 This is not an official Google product.
 
 # Homebrew formula for OR-Tools
