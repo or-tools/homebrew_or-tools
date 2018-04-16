@@ -46,6 +46,15 @@ class OrTools < Formula
   end
 
   test do
-    system "false"
+    (testpath/"test.cpp").write <<~EOS
+      #include <ortools/routing.h>
+      #include <iostream>
+      #include <memory>
+      int main(int argc, char* argv[]) {
+        RoutingModel routing;
+      }
+    EOS
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-lortools", "-o", "test"
+    system "./test"
   end
 end
