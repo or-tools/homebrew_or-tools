@@ -38,6 +38,19 @@ class OrTools < Formula
     #  system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     #  system "make", "install"
     #end
+
+    # Produce pkg-config file under cmake/make
+    (lib/"pkgconfig/libortools.pc").write <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+      Name: libortools
+      Description: Google OR-Tools C++ software suite for combinatorial optimization
+      Version: #{stable.version}
+      Libs: -L${libdir} -lortools
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do
