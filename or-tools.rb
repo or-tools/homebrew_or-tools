@@ -6,8 +6,9 @@ class OrTools < Formula
   homepage "https://developers.google.com/optimization/"
   head 'https://github.com/google/or-tools.git'
 
-  url "https://github.com/google/or-tools/archive/v6.7.1.tar.gz"
-  sha256 "c82c63a6c2b0913fe06b8d7ec2a4b42c54c1810d42c6350cf08a022915963793"
+  url "https://github.com/google/or-tools.git",
+      :tag => "v6.7.1",
+      :revision => "2e4c5b3617c433ab5ccdad6f5f5f7ccaa82adda7"
 
   depends_on 'cmake' => :build
   depends_on 'pkg-config' => :build
