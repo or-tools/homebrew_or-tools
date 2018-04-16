@@ -37,6 +37,7 @@ class OrTools < Formula
 
   def install
     #system "cmake", ".", *std_cmake_args
+    system "make", "detect"
     system "make", "cc"
     system "make", "install"
   end
