@@ -11,6 +11,10 @@ class OrTools < Formula
       :revision => "2e4c5b3617c433ab5ccdad6f5f5f7ccaa82adda7"
 
   depends_on 'cmake' => :build
+  depends_on 'coin-or-tools/coinor/cbc'
+  depends_on 'gflags'
+  depends_on 'glog'
+  depends_on 'protobuf'
   depends_on 'pkg-config' => :build
   depends_on 'libtool' => :build
   depends_on 'scip' => :optional
