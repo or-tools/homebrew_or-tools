@@ -1,6 +1,3 @@
-
-require 'formula'
-
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
