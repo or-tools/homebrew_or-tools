@@ -25,6 +25,7 @@ class OrTools < Formula
   depends_on 'cmake' => :build
   depends_on 'pkg-config' => :build
   depends_on 'libtool' => :build
+  depends_on 'scip' => :optional
 #  bottle do
 #    cellar :any_skip_relocation
 #    sha256 "" => :high_sierra
