@@ -16,6 +16,8 @@ class OrTools < Formula
   depends_on 'libtool' => :build
   depends_on 'scip' => :optional
 
+  needs :cxx11
+
   def install
     ENV.deparallelize
     # Make
