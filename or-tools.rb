@@ -19,14 +19,14 @@ class OrTools < Formula
   def install
     ENV.deparallelize
     # Make
-    system "make", "detect"
-    system "make", "cc"
-    system "make", "PREFIX=#{prefix}", "install"
+    # system "make", "detect"
+    # system "make", "cc"
+    # system "make", "PREFIX=#{prefix}", "install"
     # CMake
-    # mkdir "build" do
-    #   system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-    #   system "make", "install"
-    # end
+    mkdir "build" do
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+      system "make", "PREFIX=#{prefix}", "install"
+    end
 
     # Produce pkg-config file under cmake/make
     (lib/"pkgconfig/libortools.pc").write <<~EOS
