@@ -1,0 +1,19 @@
+sudo: required
+language: generic
+
+matrix:
+  include:
+    - os: osx
+      language: cpp
+      compiler: gcc
+      env: BUILDER=make
+    - os: osx
+      language: cpp
+      compiler: clang
+      env: BUILDER=make
+
+install:
+  - ./.travis/install.sh
+
+script:
+  - ./.travis/script.sh
