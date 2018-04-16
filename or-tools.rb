@@ -18,10 +18,10 @@ class OrTools < Formula
 
   def install
     ENV.deparallelize
-		ENV[UNIX_GFLAGS_DIR] = "#{HOMEBREW_PREFIX}"
-		ENV[UNIX_GLOG_DIR] = "#{HOMEBREW_PREFIX}"
-		ENV[UNIX_PROTOBUF_DIR] = "#{HOMEBREW_PREFIX}"
-		ENV[UNIX_CBC_DIR] = "#{HOMEBREW_PREFIX}"
+    ENV[UNIX_GFLAGS_DIR] = "#{HOMEBREW_PREFIX}"
+    ENV[UNIX_GLOG_DIR] = "#{HOMEBREW_PREFIX}"
+    ENV[UNIX_PROTOBUF_DIR] = "#{HOMEBREW_PREFIX}"
+    ENV[UNIX_CBC_DIR] = "#{HOMEBREW_PREFIX}"
     # Make
     system "make", "detect"
     system "make", "cc"
