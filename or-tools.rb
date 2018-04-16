@@ -14,7 +14,7 @@
 
 require 'formula'
 
-class ORTools < Formula
+class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   head 'https://github.com/google/or-tools.git'
