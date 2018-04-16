@@ -18,14 +18,6 @@ class OrTools < Formula
   depends_on 'pkg-config' => :build
   depends_on 'libtool' => :build
   depends_on 'scip' => :optional
-#  bottle do
-#    cellar :any_skip_relocation
-#    sha256 "" => :high_sierra
-#    sha256 "" => :sierra
-#    sha256 "" => :el_capitan
-#    sha256 "" => :yosemite
-#    sha256 "" => :mavericks
-#  end
 
   def install
     ENV.deparallelize
