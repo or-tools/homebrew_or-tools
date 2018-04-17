@@ -9,7 +9,7 @@ class OrTools < Formula
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "coin-or-tools/coinor/cbc"
+  depends_on "coin-or-tools/coinor/cbc" => ["with-parallel"]
   depends_on "gflags"
   depends_on "glog"
   depends_on "protobuf"
