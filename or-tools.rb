@@ -23,10 +23,11 @@ class OrTools < Formula
     ENV["UNIX_GLOG_DIR"] = "#{HOMEBREW_PREFIX}"
     ENV["UNIX_PROTOBUF_DIR"] = "#{HOMEBREW_PREFIX}"
     ENV["UNIX_CBC_DIR"] = "#{HOMEBREW_PREFIX}"
+    ENV["UNIX_DYNAMIC_DEPENDENCIES"] = "1"
     # Make
     system "make", "detect"
     system "make", "cc"
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "TARGET_DIR=#{prefix}", "install_cc"
     # CMake
     # mkdir "build" do
     #   system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
