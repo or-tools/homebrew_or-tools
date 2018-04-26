@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
-set -x
 brew install --HEAD --build-from-source --verbose ./or-tools.rb
+
 brew info ortools
 brew list -v ortools
 
