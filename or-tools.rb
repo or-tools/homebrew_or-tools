@@ -7,10 +7,14 @@ class OrTools < Formula
   head "https://github.com/google/or-tools.git",
       :branch => "mizux/shared"
 
+  bottle do
+    cellar :any
+  end
+
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "coin-or-tools/coinor/cbc" => ["with-parallel"]
+  depends_on "coin-or-tools/coinor/cbc"
   depends_on "gflags"
   depends_on "glog"
   depends_on "protobuf"
@@ -19,10 +23,10 @@ class OrTools < Formula
 
   def install
     ENV.deparallelize
-    ENV["UNIX_GFLAGS_DIR"] = "#{HOMEBREW_PREFIX}"
-    ENV["UNIX_GLOG_DIR"] = "#{HOMEBREW_PREFIX}"
-    ENV["UNIX_PROTOBUF_DIR"] = "#{HOMEBREW_PREFIX}"
-    ENV["UNIX_CBC_DIR"] = "#{HOMEBREW_PREFIX}"
+    ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
+    ENV["UNIX_GLOG_DIR"] = HOMEBREW_PREFIX
+    ENV["UNIX_PROTOBUF_DIR"] = HOMEBREW_PREFIX
+    ENV["UNIX_CBC_DIR"] = HOMEBREW_PREFIX
     # Make
     system "make", "detect"
     system "make", "cc"
@@ -52,11 +56,11 @@ class OrTools < Formula
       #include <ortools/constraint_solver/routing.h>
       #include <iostream>
       #include <memory>
-			using operations_research::RoutingModel;
+      using operations_research::RoutingModel;
       int main(int argc, char* argv[]) {
-				const RoutingModel::NodeIndex kDepot(0);
-				RoutingModel routing(42, 8, kDepot);
-				std::cout << "done" << std::endl;
+        const RoutingModel::NodeIndex kDepot(0);
+        RoutingModel routing(42, 8, kDepot);
+        std::cout << "done" << std::endl;
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-lortools", "-o", "test"
