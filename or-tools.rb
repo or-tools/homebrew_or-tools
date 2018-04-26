@@ -23,11 +23,10 @@ class OrTools < Formula
     ENV["UNIX_GLOG_DIR"] = "#{HOMEBREW_PREFIX}"
     ENV["UNIX_PROTOBUF_DIR"] = "#{HOMEBREW_PREFIX}"
     ENV["UNIX_CBC_DIR"] = "#{HOMEBREW_PREFIX}"
-    ENV["UNIX_DYNAMIC_DEPENDENCIES"] = "1"
     # Make
     system "make", "detect"
     system "make", "cc"
-    system "make", "TARGET_DIR=#{prefix}", "install_cc"
+    system "make", "prefix=#{prefix}", "install_cc"
     # CMake
     # mkdir "build" do
     #   system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
@@ -50,11 +49,14 @@ class OrTools < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <ortools/routing.h>
+      #include <ortools/constraint_solver/routing.h>
       #include <iostream>
       #include <memory>
+			using operations_research::RoutingModel;
       int main(int argc, char* argv[]) {
-        RoutingModel routing;
+				const RoutingModel::NodeIndex kDepot(0);
+				RoutingModel routing(42, 8, kDepot);
+				std::cout << "done" << std::endl;
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-lortools", "-o", "test"
