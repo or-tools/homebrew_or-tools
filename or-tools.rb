@@ -2,7 +2,7 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   url "https://github.com/google/or-tools.git",
-      :tag => "v6.8",
+      :tag => "v7.0",
       :revision => "1"
 
   head "https://github.com/google/or-tools.git",
