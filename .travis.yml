@@ -1,4 +1,4 @@
-language: generic
+language: cpp
 
 matrix:
   include:
@@ -6,30 +6,30 @@ matrix:
       osx_image: xcode10.1
       language: cpp
       compiler: gcc
-      env: VERSION="High Sierra (10.13)"
+      env: CODENAME=HighSierra VERSION=10.13
     - os: osx
       osx_image: xcode10.1
       language: cpp
       compiler: clang
-      env: VERSION="High Sierra (10.13)"
+      env: CODENAME=HighSierra VERSION=10.13
 
     - os: osx
       osx_image: xcode9.2
       language: cpp
       compiler: clang
-      env: VERSION="Sierra (10.12)"
+      env: CODENAME=Sierra VERSION=10.12
 
     - os: osx
       osx_image: xcode7.3
       language: cpp
       compiler: clang
-      env: VERSION="El Capitan (10.11)"
+      env: CODENAME=ElCapitan VERSION=10.11
 
     - os: osx
       osx_image: xcode6.4
       language: cpp
       compiler: clang
-      env: VERSION="Yosemite (10.10)"
+      env: CODENAME=Yosemite VERSION=10.10
 
 install:
   - ./.travis/install.sh
