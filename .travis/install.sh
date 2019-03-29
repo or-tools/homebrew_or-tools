@@ -6,8 +6,9 @@ rm -f /usr/local/include/c++
 sw_vers
 
 brew --version
-
 brew update
+brew upgrade
+brew --version
 
 # see https://github.com/travis-ci/travis-ci/issues/10275
 brew install gcc || brew link --overwrite gcc
