@@ -20,8 +20,6 @@ class OrTools < Formula
   depends_on "glog"
   depends_on "protobuf"
 
-  needs :cxx11
-
   def install
     ENV.deparallelize
     ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
