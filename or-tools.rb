@@ -34,7 +34,7 @@ class OrTools < Formula
     # CMake
     # mkdir "build" do
     system "cmake", "-S.", "-Bbuild", *std_cmake_args
-    system "cmake", "--build build", "--target all"
+    system "cmake", "--build build"
     system "cmake", "--build build", "--target install"
     # end
 
