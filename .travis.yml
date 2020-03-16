@@ -32,13 +32,6 @@ jobs:
       compiler: clang
       env: CODENAME=ElCapitan VERSION=10.11
 
-    # see https://docs.travis-ci.com/user/reference/osx/#xcode-64
-    - os: osx
-      osx_image: xcode6.4
-      language: cpp
-      compiler: clang
-      env: CODENAME=Yosemite VERSION=10.10
-
 install:
   - ./.travis/install.sh
 
