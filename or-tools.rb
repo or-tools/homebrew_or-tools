@@ -16,6 +16,7 @@ class OrTools < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "coin-or-tools/coinor/cbc"
+  depends_on "abseil"
   depends_on "gflags"
   depends_on "glog"
   depends_on "protobuf"
@@ -27,13 +28,14 @@ class OrTools < Formula
     ENV["UNIX_PROTOBUF_DIR"] = HOMEBREW_PREFIX
     ENV["UNIX_CBC_DIR"] = HOMEBREW_PREFIX
     # Make
-    system "make", "detect"
-    system "make", "cc"
-    system "make", "prefix=#{prefix}", "install_cc"
+    #system "make", "detect"
+    #system "make", "cc"
+    #system "make", "prefix=#{prefix}", "install_cc"
     # CMake
     # mkdir "build" do
-    #   system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-    #   system "make", "PREFIX=#{prefix}", "install"
+    system "cmake", "-S.", "-Bbuild", *std_cmake_args
+    system "cmake", "--build build", "--target all"
+    system "cmake", "--build build", "--target install"
     # end
 
     # Produce pkg-config file under cmake/make
