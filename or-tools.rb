@@ -2,7 +2,7 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   url "https://github.com/google/or-tools.git",
-      :tag => "v7.9",
+      :tag => "v7.8",
       :revision => "1"
 
   head "https://github.com/google/or-tools/archive/master.zip"
@@ -28,6 +28,7 @@ class OrTools < Formula
   #depends_on "coinutils"
 
   def install
+    # Make Based build
     ENV.deparallelize
     ENV["UNIX_ABSL_DIR"] = HOMEBREW_PREFIX
     ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
@@ -39,16 +40,9 @@ class OrTools < Formula
     ENV["UNIX_OSI_DIR"] = HOMEBREW_PREFIX
     ENV["UNIX_COINUTILS_DIR"] = HOMEBREW_PREFIX
     ENV["USE_SCIP"] = OFF
-    # Make Based build
     system "make", "detect"
     system "make", "cc"
     system "make", "prefix=#{prefix}", "install_cc"
-    # CMake based build
-    # mkdir "build" do
-    #system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF",*std_cmake_args
-    #system "cmake", "--build build", "-v"
-    #system "cmake", "--build build", "--target install"
-    # end
 
     # Produce pkg-config file under cmake/make
     (lib/"pkgconfig/libortools.pc").write <<~EOS
@@ -70,8 +64,9 @@ class OrTools < Formula
       #include <iostream>
       #include <memory>
       using operations_research::RoutingModel;
+      using operations_research::RoutingIndexManager;
       int main(int argc, char* argv[]) {
-        const RoutingModel::NodeIndex kDepot(0);
+        const RoutingIndexManager::NodeIndex kDepot(0);
         RoutingModel routing(42, 8, kDepot);
         std::cout << "done" << std::endl;
       }
