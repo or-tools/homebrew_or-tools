@@ -1,0 +1,26 @@
+name: MacOS CI
+
+on: [push, pull_request]
+
+jobs:
+  homebrew:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check cmake
+      run: cmake --version
+    - name: Install dependencies
+      run: brew install --HEAD --only-dependencies --verbose ./or-tools.rb
+    - name: Install OR-Tools
+      run: brew install --HEAD --build-from-source --verbose ./or-tools.rb
+    - run: ls /Users/runner/Library/Logs/Homebrew/or-tools/*
+    - name: Info OR-Tools
+      run: brew info or-tools --verbose
+    - name: List OR-Tools
+      run: brew list or-tools --verbose
+    - name: Test OR-Tools
+      run: brew test or-tools --verbose
+    - name: Audit (new-formula) OR-Tools
+      run: brew audit --new-formula or-tools
+    - name: Audit (strict) OR-Tools
+      run: brew audit --strict or-tools

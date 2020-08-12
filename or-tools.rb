@@ -2,7 +2,7 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   url "https://github.com/google/or-tools.git",
-      :tag => "v7.5",
+      :tag => "v7.8",
       :revision => "1"
 
   head "https://github.com/google/or-tools.git",
@@ -15,27 +15,38 @@ class OrTools < Formula
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "coin-or-tools/coinor/cbc"
   depends_on "abseil"
   depends_on "gflags"
   depends_on "glog"
   depends_on "protobuf"
+  depends_on "coin-or-tools/coinor/cbc"
+  #depends_on "cbc"
+  #depends_on "cgl"
+  #depends_on "clp"
+  #depends_on "osi"
+  #depends_on "coinutils"
 
   def install
     ENV.deparallelize
+    ENV["UNIX_ABSL_DIR"] = HOMEBREW_PREFIX
     ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
     ENV["UNIX_GLOG_DIR"] = HOMEBREW_PREFIX
     ENV["UNIX_PROTOBUF_DIR"] = HOMEBREW_PREFIX
     ENV["UNIX_CBC_DIR"] = HOMEBREW_PREFIX
-    # Make
-    #system "make", "detect"
-    #system "make", "cc"
-    #system "make", "prefix=#{prefix}", "install_cc"
-    # CMake
+    ENV["UNIX_CGL_DIR"] = HOMEBREW_PREFIX
+    ENV["UNIX_CLP_DIR"] = HOMEBREW_PREFIX
+    ENV["UNIX_OSI_DIR"] = HOMEBREW_PREFIX
+    ENV["UNIX_COINUTILS_DIR"] = HOMEBREW_PREFIX
+    ENV["USE_SCIP"] = OFF
+    # Make Based build
+    system "make", "detect"
+    system "make", "cc"
+    system "make", "prefix=#{prefix}", "install_cc"
+    # CMake based build
     # mkdir "build" do
-    system "cmake", "-S.", "-Bbuild", *std_cmake_args
-    system "cmake", "--build build"
-    system "cmake", "--build build", "--target install"
+    #system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF",*std_cmake_args
+    #system "cmake", "--build build", "-v"
+    #system "cmake", "--build build", "--target install"
     # end
 
     # Produce pkg-config file under cmake/make
