@@ -72,7 +72,8 @@ class OrTools < Formula
       using operations_research::RoutingIndexManager;
       int main(int argc, char* argv[]) {
         const RoutingIndexManager::NodeIndex kDepot(0);
-        RoutingModel routing(42, 8, kDepot);
+        RoutingIndexManager manager(42, 8, kDepot);
+        RoutingModel routing(manager);
         std::cout << "done" << std::endl;
       }
     EOS
