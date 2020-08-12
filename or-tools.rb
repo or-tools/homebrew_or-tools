@@ -2,11 +2,12 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   url "https://github.com/google/or-tools.git",
-      :tag => "v7.8",
+      :tag => "v7.9",
       :revision => "1"
 
-  head "https://github.com/google/or-tools.git",
-       :branch => "master"
+  head "https://github.com/google/or-tools/archive/master.zip"
+  #head "https://github.com/google/or-tools.git",
+  #     :branch => "master"
 
   bottle do
     cellar :any
