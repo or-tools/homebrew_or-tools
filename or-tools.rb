@@ -28,26 +28,26 @@ class OrTools < Formula
 
   def install
     ENV.deparallelize
-    ENV["UNIX_ABSL_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_GLOG_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_PROTOBUF_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_CBC_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_CGL_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_CLP_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_OSI_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_COINUTILS_DIR"] = HOMEBREW_PREFIX
-    ENV["USE_SCIP"] = OFF
     # Make Based build
-    system "make", "detect"
-    system "make", "cc"
-    system "make", "prefix=#{prefix}", "install_cc"
+    #ENV["UNIX_ABSL_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_GLOG_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_PROTOBUF_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_CBC_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_CGL_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_CLP_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_OSI_DIR"] = HOMEBREW_PREFIX
+    #ENV["UNIX_COINUTILS_DIR"] = HOMEBREW_PREFIX
+    #ENV["USE_SCIP"] = OFF
+    #system "make", "detect"
+    #system "make", "cc"
+    #system "make", "prefix=#{prefix}", "install_cc"
     # CMake based build
-    # mkdir "build" do
-    #system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF",*std_cmake_args
-    #system "cmake", "--build build", "-v"
-    #system "cmake", "--build build", "--target install"
-    # end
+    mkdir "build" do
+     system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF",*std_cmake_args
+     system "cmake", "--build build", "-v"
+     system "cmake", "--build build", "--target install"
+    end
 
     # Produce pkg-config file under cmake/make
     (lib/"pkgconfig/libortools.pc").write <<~EOS
