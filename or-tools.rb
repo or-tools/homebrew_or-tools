@@ -43,12 +43,11 @@ class OrTools < Formula
     #system "make", "detect"
     #system "make", "cc"
     #system "make", "prefix=#{prefix}", "install_cc"
+
     # CMake based build
-    mkdir "build" do
-     system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF",*std_cmake_args
-     system "cmake", "--build build", "-v"
-     system "cmake", "--build build", "--target install"
-    end
+    system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF", *std_cmake_args
+    system "cmake", "--build build", "-v"
+    system "cmake", "--build build", "--target install"
 
     # Produce pkg-config file under cmake/make
     (lib/"pkgconfig/libortools.pc").write <<~EOS
