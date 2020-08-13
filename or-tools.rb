@@ -31,16 +31,17 @@ class OrTools < Formula
   def install
     # Make Based build
     ENV.deparallelize
-    ENV["UNIX_ABSL_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_GLOG_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_PROTOBUF_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_CBC_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_CGL_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_CLP_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_OSI_DIR"] = HOMEBREW_PREFIX
-    ENV["UNIX_COINUTILS_DIR"] = HOMEBREW_PREFIX
+    ENV["UNIX_ABSL_DIR"] = "#{Formula["abseil"].opt_prefix}"
+    ENV["UNIX_GFLAGS_DIR"] = "#{Formula["gflags"].opt_prefix}"
+    ENV["UNIX_GLOG_DIR"] = "#{Formula["glog"].opt_prefix}"
+    ENV["UNIX_PROTOBUF_DIR"] = "#{Formula["protobuf"].opt_prefix}"
+    ENV["UNIX_CBC_DIR"] = "#{Formula["cbc"].opt_prefix}"
+    ENV["UNIX_CGL_DIR"] = "#{Formula["cgl"].opt_prefix}"
+    ENV["UNIX_CLP_DIR"] = "#{Formula["clp"].opt_prefix}"
+    ENV["UNIX_OSI_DIR"] = "#{Formula["osi"].opt_prefix}"
+    ENV["UNIX_COINUTILS_DIR"] = "#{Formula["coinutils"].opt_prefix}"
     ENV["USE_SCIP"] = OFF
+    system "env"
     system "make", "detect"
     system "make", "cc"
     system "make", "prefix=#{prefix}", "install_cc"
