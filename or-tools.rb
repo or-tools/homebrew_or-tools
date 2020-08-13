@@ -22,8 +22,6 @@ class OrTools < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "protobuf"
-  #depends_on "coin-or-tools/coinor/cbc"
-  # Not yet available
   depends_on "cbc"
   depends_on "cgl"
   depends_on "clp"
@@ -31,22 +29,6 @@ class OrTools < Formula
   depends_on "coinutils"
 
   def install
-    ENV.deparallelize
-    # Make Based build
-    #ENV["UNIX_ABSL_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_GFLAGS_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_GLOG_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_PROTOBUF_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_CBC_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_CGL_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_CLP_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_OSI_DIR"] = HOMEBREW_PREFIX
-    #ENV["UNIX_COINUTILS_DIR"] = HOMEBREW_PREFIX
-    #ENV["USE_SCIP"] = OFF
-    #system "make", "detect"
-    #system "make", "cc"
-    #system "make", "prefix=#{prefix}", "install_cc"
-
     # CMake based build
     system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF", *std_cmake_args
     system "cmake", "--build", "build", "-v"
