@@ -23,12 +23,12 @@ class OrTools < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "protobuf"
-  depends_on "coin-or-tools/coinor/cbc"
-  #depends_on "cbc"
-  #depends_on "cgl"
-  #depends_on "clp"
-  #depends_on "osi"
-  #depends_on "coinutils"
+  #depends_on "coin-or-tools/coinor/cbc"
+  depends_on "cbc"
+  depends_on "cgl"
+  depends_on "clp"
+  depends_on "osi"
+  depends_on "coinutils"
 
   def install
     ENV.deparallelize
