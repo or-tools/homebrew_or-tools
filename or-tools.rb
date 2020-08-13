@@ -1,6 +1,9 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
+  version "7.8"
+  license "Apache-2.0"
+
   url "https://github.com/google/or-tools.git",
       :tag => "v7.8",
       :revision => "1"
