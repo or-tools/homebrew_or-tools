@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Check cmake
       run: cmake --version
+    - name: brew update
+      run: brew update
     - name: Install dependencies
       run: brew install --HEAD --only-dependencies --verbose ./or-tools.rb
     - name: Install OR-Tools

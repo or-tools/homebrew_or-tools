@@ -1,6 +1,8 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
+  license "Apache-2.0"
+
   url "https://github.com/google/or-tools.git",
       :tag => "v7.8",
       :revision => "1"
@@ -20,12 +22,11 @@ class OrTools < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "protobuf"
-  depends_on "coin-or-tools/coinor/cbc"
-  #depends_on "cbc"
-  #depends_on "cgl"
-  #depends_on "clp"
-  #depends_on "osi"
-  #depends_on "coinutils"
+  depends_on "cbc"
+  depends_on "cgl"
+  depends_on "clp"
+  depends_on "osi"
+  depends_on "coinutils"
 
   def install
     # Make Based build
