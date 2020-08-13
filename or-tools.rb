@@ -1,7 +1,6 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  version "7.8"
   license "Apache-2.0"
 
   url "https://github.com/google/or-tools.git",
@@ -24,6 +23,7 @@ class OrTools < Formula
   depends_on "glog"
   depends_on "protobuf"
   #depends_on "coin-or-tools/coinor/cbc"
+  # Not yet available
   depends_on "cbc"
   depends_on "cgl"
   depends_on "clp"
