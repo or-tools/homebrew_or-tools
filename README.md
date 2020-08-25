@@ -1,4 +1,4 @@
-![MacOS CI](https://github.com/Mizux/homebrew-or-tools/workflows/MacOS%20CI/badge.svg)
+[![MacOS CI](https://github.com/Mizux/homebrew-or-tools/workflows/MacOS%20CI/badge.svg)](https://github.com/Mizux/homebrew-or-tools/actions?query=workflow%3A%22MacOS+CI%22)
 [![Build Status](https://travis-ci.com/Mizux/homebrew-or-tools.svg?branch=master)](https://travis-ci.com/Mizux/homebrew-or-tools)
 
 This is not an official Google product.
