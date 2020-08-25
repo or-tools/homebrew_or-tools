@@ -9,7 +9,7 @@ jobs:
       osx_image: xcode11.6
       language: cpp
       compiler: clang
-      env: CODENAME=Catalina VERSION=10.15.4
+      env: CODENAME=Catalina VERSION=10.15.5
 
 install:
   - ./.travis/install.sh
