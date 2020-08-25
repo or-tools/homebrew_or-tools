@@ -5,7 +5,7 @@ class OrTools < Formula
 
   url "https://github.com/google/or-tools.git",
       :tag => "v7.8",
-      :revision => "1"
+      :revision => "a0a56698ba8fd07b7f84aee4fc45d891a8cd9828"
 
   head "https://github.com/google/or-tools/archive/master.zip"
   #head "https://github.com/google/or-tools.git",
