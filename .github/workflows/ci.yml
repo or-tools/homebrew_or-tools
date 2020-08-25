@@ -1,9 +1,14 @@
 name: MacOS CI
 
-on: [push, pull_request]
+on: 
+  push:
+  pull_request:
+  schedule:
+    # min hours day(month) month day(week)
+    - cron: '0 0 4/5 * *'
 
 jobs:
-  homebrew:
+  head:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -15,6 +20,30 @@ jobs:
       run: brew install --HEAD --only-dependencies --verbose ./or-tools.rb
     - name: Install OR-Tools
       run: brew install --HEAD --build-from-source --verbose ./or-tools.rb
+    - run: ls /Users/runner/Library/Logs/Homebrew/or-tools/*
+    - name: Info OR-Tools
+      run: brew info or-tools --verbose
+    - name: List OR-Tools
+      run: brew list or-tools --verbose
+    - name: Test OR-Tools
+      run: brew test or-tools --verbose
+    - name: Audit (new-formula) OR-Tools
+      run: brew audit --new-formula or-tools
+    - name: Audit (strict) OR-Tools
+      run: brew audit --strict or-tools
+      
+  latest:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check cmake
+      run: cmake --version
+    - name: brew update
+      run: brew update
+    - name: Install dependencies
+      run: brew install --only-dependencies --verbose ./or-tools.rb
+    - name: Install OR-Tools
+      run: brew install --build-from-source --verbose ./or-tools.rb
     - run: ls /Users/runner/Library/Logs/Homebrew/or-tools/*
     - name: Info OR-Tools
       run: brew info or-tools --verbose
