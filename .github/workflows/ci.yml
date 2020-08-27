@@ -11,6 +11,8 @@ jobs:
       run: cmake --version
     - name: brew update
       run: brew update
+    - name: Install abseil using C++17
+      run: brew install --build-from-source --verbose ./abseil.rb
     - name: Install dependencies
       run: brew install --HEAD --only-dependencies --verbose ./or-tools.rb
     - name: Install OR-Tools
