@@ -30,7 +30,7 @@ class OrTools < Formula
 
   def install
     # CMake based build
-    system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF", *std_cmake_args
+    system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF", "-DBUILD_SAMPLES=OFF", "-DBUILD_EXAMPLES=OFF", *std_cmake_args
     system "cmake", "--build", "build", "-v"
     system "cmake", "--build", "build", "--target", "install"
 
@@ -62,7 +62,7 @@ class OrTools < Formula
         std::cout << "done" << std::endl;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-lortools", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}", "-L#{lib}", "-lortools", "-o", "test"
     system "./test"
   end
 end
