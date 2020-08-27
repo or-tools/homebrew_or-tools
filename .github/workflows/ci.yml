@@ -16,6 +16,8 @@ jobs:
       run: cmake --version
     - name: brew update
       run: brew update
+    - name: Get Reverse deps of abseil
+      run: brew uses --recursive --include-build --include-test abseil
     - name: Install dependencies
       run: brew install --HEAD --only-dependencies --verbose ./or-tools.rb
     - name: Install OR-Tools
