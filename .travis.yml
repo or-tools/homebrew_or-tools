@@ -7,7 +7,6 @@ jobs:
     # see https://docs.travis-ci.com/user/reference/osx/#xcode-116
     - os: osx
       osx_image: xcode11.6
-      language: cpp
       compiler: clang
       env: CODENAME=Catalina VERSION=10.15.5
 
