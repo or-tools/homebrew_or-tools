@@ -15,7 +15,7 @@ jobs:
         version: ["--HEAD", ""]
       fail-fast: false
     env:
-      VERSION: {{ matrix.version }}
+      VERSION: ${{ matrix.version }}
     steps:
     - uses: actions/checkout@v2
     - name: Check cmake
