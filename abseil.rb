@@ -18,8 +18,6 @@ class Abseil < Formula
   depends_on "cmake" => :build
 
   def install
-    ENV.cxx17
-
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17", "-DCMAKE_CXX_STANDARD_REQUIRED=ON"
       system "make"
