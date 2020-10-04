@@ -3,21 +3,23 @@ class Abseil < Formula
   homepage "https://abseil.io"
   license "Apache-2.0"
 
-  url "https://github.com/abseil/abseil-cpp/archive/20200225.2.tar.gz"
-  sha256 "f41868f7a938605c92936230081175d1eae87f6ea2c248f41077c8f88316f111"
+  url "https://github.com/abseil/abseil-cpp/archive/20200923.tar.gz"
+  sha256 "b3744a4f7a249d5eaf2309daad597631ce77ea62e0fc6abffbab4b4c3dc0fc08"
 
   head "https://github.com/abseil/abseil-cpp/archive/master.zip"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43368dc236c3e6371d904edda75e5a8dae8127ded5b2f9ff9a0a15b4ddf103d0" => :catalina
-    sha256 "68ed0a482bd727a10fc0cf2e2e76c0307dc2d5eba8c9e4a2c0990a1dc68825b9" => :mojave
-    sha256 "bed9e2b638d6c044d31fe88bd04b225eb33548650890084ebb0657a574f7fcee" => :high_sierra
+    sha256 "41a1f8eaf020a761709b5d2c1d71d0d151d7f97dd85a9b06a8ac54fe2ffa5069" => :catalina
+    sha256 "c5ed957360a25b35554b279530b21dbefcd2271e15df4ff3d436ff9a2de1ee0f" => :mojave
+    sha256 "b07fe2fdca798d08e46cefedf3eea3d8d53fc6c6885cfd413cb4de3050f9bf04" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   def install
+    ENV.cxx17
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17", "-DCMAKE_CXX_STANDARD_REQUIRED=ON"
       system "make"
