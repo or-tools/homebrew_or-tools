@@ -11,7 +11,7 @@ Formula is written from scratch to make it harder, better, faster, stronger.
 
 1. Add this repo as a tap.
 ```sh
-brew tap mizux/or-tools
+brew tap or-tools/or-tools
 ```
 2. Install OR-Tools:
 ```sh
@@ -21,7 +21,7 @@ brew install or-tools
 
 ## Development process
 
-1. Clone this repo into `/usr/local/Library/Tap/mizux/`
+1. Clone this repo into `/usr/local/Library/Tap/or-tools/`
 2. Edit `or-tools.rb`
 3. Reinstall or-tools: `brew uninstall ortools; brew install --verbose --debug --HEAD or-tools`
 
