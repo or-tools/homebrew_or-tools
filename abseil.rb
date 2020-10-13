@@ -19,7 +19,7 @@ class Abseil < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17"
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17", "-DCMAKE_CXX_STANDARD_REQUIRED=ON"
       system "make"
       system "make", "install"
     end
