@@ -4,6 +4,7 @@ class Abseil < Formula
   url "https://github.com/abseil/abseil-cpp/archive/20200923.1.tar.gz"
   sha256 "808350c4d7238315717749bab0067a1acd208023d41eaf0c7360f29cc8bc8f21"
   license "Apache-2.0"
+  revision 1
 
   #head "https://github.com/abseil/abseil-cpp/archive/master.zip"
 
@@ -18,7 +19,7 @@ class Abseil < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17", "-DCMAKE_CXX_STANDARD_REQUIRED=ON"
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_CXX_STANDARD=17"
       system "make"
       system "make", "install"
     end
