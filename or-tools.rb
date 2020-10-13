@@ -62,7 +62,9 @@ class OrTools < Formula
         std::cout << "done" << std::endl;
       }
     EOS
-    system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}", "-L#{lib}", "-lortools", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp",
+                    "-I#{include}", "-L#{lib}", "-lortools",
+                    "-o", "test"
     system "./test"
   end
 end

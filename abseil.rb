@@ -6,7 +6,7 @@ class Abseil < Formula
   license "Apache-2.0"
   revision 1
 
-  head "https://github.com/abseil/abseil-cpp/archive/master.zip"
+  #head "https://github.com/abseil/abseil-cpp/archive/master.zip"
 
   bottle do
     cellar :any_skip_relocation
