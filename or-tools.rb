@@ -3,20 +3,16 @@ class OrTools < Formula
   homepage "https://developers.google.com/optimization/"
   license "Apache-2.0"
 
-  url "https://github.com/google/or-tools.git",
-      :tag => "v8.0",
-      :revision => "8d19323faf51f2f004e4de6c1b32a74001fbc7c1"
+  url "https://github.com/google/or-tools/archive/v8.0.tar.gz"
+  sha256 "ac01d7ebde157daaeb0e21ce54923a48e4f1d21faebd0b08a54979f150f909ee"
 
   head "https://github.com/google/or-tools/archive/master.zip"
-  #head "https://github.com/google/or-tools.git",
-  #     :branch => "master"
 
   bottle do
     cellar :any
   end
 
   depends_on "cmake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "abseil"
   depends_on "gflags"
@@ -30,7 +26,7 @@ class OrTools < Formula
 
   def install
     # CMake based build
-    system "cmake", "-S.", "-Bbuild", "-DUSE_SCIP=OFF", "-DBUILD_SAMPLES=OFF", "-DBUILD_EXAMPLES=OFF", *std_cmake_args
+    system "cmake", "-S.", "-Bbuild", *std_cmake_args, "-DUSE_SCIP=OFF", "-DBUILD_SAMPLES=OFF", "-DBUILD_EXAMPLES=OFF"
     system "cmake", "--build", "build", "-v"
     system "cmake", "--build", "build", "--target", "install"
 
