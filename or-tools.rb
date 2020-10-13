@@ -4,8 +4,8 @@ class OrTools < Formula
   license "Apache-2.0"
 
   url "https://github.com/google/or-tools.git",
-      :tag => "v7.8",
-      :revision => "a0a56698ba8fd07b7f84aee4fc45d891a8cd9828"
+      :tag => "v8.0",
+      :revision => "8d19323faf51f2f004e4de6c1b32a74001fbc7c1"
 
   head "https://github.com/google/or-tools/archive/master.zip"
   #head "https://github.com/google/or-tools.git",
