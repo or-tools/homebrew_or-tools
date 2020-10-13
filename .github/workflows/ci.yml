@@ -27,7 +27,7 @@ jobs:
     - name: Install abseil using C++17
       run: |
         brew install --build-from-source --verbose ./abseil.rb;
-        brew test abseil --verbose
+        brew test ./abseil.rb --verbose
     - name: Install dependencies
       run: brew install ${VERSION} --only-dependencies --verbose ./or-tools.rb
     - name: Install OR-Tools
@@ -38,8 +38,8 @@ jobs:
     - name: List OR-Tools
       run: brew list or-tools --verbose
     - name: Test OR-Tools
-      run: brew test or-tools --verbose
+      run: brew test ./or-tools.rb --verbose
     - name: Audit (new-formula) OR-Tools
-      run: brew audit --new-formula or-tools
+      run: brew audit --new-formula ./or-tools.rb
     - name: Audit (strict) OR-Tools
-      run: brew audit --strict or-tools
+      run: brew audit --strict ./or-tools.rb
