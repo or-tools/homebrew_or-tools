@@ -24,10 +24,6 @@ jobs:
       run: brew update
     - name: Get Reverse deps of abseil
       run: brew uses --recursive --include-build --include-test abseil
-    - name: Install abseil using C++17
-      run: |
-        brew install --build-from-source --verbose ./abseil.rb;
-        brew test ./abseil.rb --verbose
     - name: Install dependencies
       run: brew install ${VERSION} --only-dependencies --verbose ./or-tools.rb
     - name: Install OR-Tools
