@@ -1,11 +1,8 @@
 [![MacOS CI](https://github.com/Mizux/homebrew-or-tools/workflows/MacOS%20CI/badge.svg)](https://github.com/Mizux/homebrew-or-tools/actions?query=workflow%3A%22MacOS+CI%22)
-[![Build Status](https://travis-ci.com/Mizux/homebrew-or-tools.svg?branch=master)](https://travis-ci.com/Mizux/homebrew-or-tools)
-
-This is not an official Google product.
 
 # Homebrew formula for OR-Tools
 
-Formula is written from scratch to make it harder, better, faster, stronger.
+Formula has been written from scratch to make it harder, better, faster, stronger.
 
 ## Usage
 
@@ -34,5 +31,5 @@ proposals and reach consensus before sending your first PR.
 
 ## License
 
-The OR-Tools software suite is licensed under the terms of the Apache license.
+The OR-Tools software suite is licensed under the terms of the Apache 2.0 license.
 <br>See [LICENSE](LICENSE) for more information.
