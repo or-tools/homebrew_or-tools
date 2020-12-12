@@ -1,8 +1,8 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v8.0.tar.gz"
-  sha256 "ac01d7ebde157daaeb0e21ce54923a48e4f1d21faebd0b08a54979f150f909ee"
+  url "https://github.com/google/or-tools/archive/v8.1.tar.gz"
+  sha256 "beb9fe379977033151045d0815d26c628ad99d74d68b9f3b707578492723731e"
   license "Apache-2.0"
   head "https://github.com/google/or-tools.git"
 
@@ -17,8 +17,6 @@ class OrTools < Formula
   depends_on "cgl"
   depends_on "clp"
   depends_on "coinutils"
-  depends_on "gflags"
-  depends_on "glog"
   depends_on "osi"
   depends_on "protobuf"
 
