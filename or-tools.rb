@@ -1,7 +1,7 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v8.1.tar.gz"
+  url "https://github.com/google/or-tools/archive/v8.2.tar.gz"
   sha256 "beb9fe379977033151045d0815d26c628ad99d74d68b9f3b707578492723731e"
   license "Apache-2.0"
   head "https://github.com/google/or-tools.git"
