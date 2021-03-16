@@ -2,6 +2,8 @@
 
 # Homebrew formula for OR-Tools
 
+**DISCLAIMER**: This is just a test repo please use the official Homebrew formula [ortools](https://formulae.brew.sh/formula/or-tools#default)
+
 Formula has been written from scratch to make it harder, better, faster, stronger.
 
 ## Usage
