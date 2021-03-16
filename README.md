@@ -8,7 +8,7 @@ Formula has been written from scratch to make it harder, better, faster, stronge
 
 1. Add this repo as a tap.
 ```sh
-brew tap or-tools/or-tools
+brew tap or-tools/or-tools https://github.com/or-tools/homebrew_or-tools.git
 ```
 2. Install OR-Tools:
 ```sh
